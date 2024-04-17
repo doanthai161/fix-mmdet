@@ -11,26 +11,27 @@ git clone https://github.com/open-mmlab/mmengine.git
 cd mmengine
 pip install -e . -v
 
-# install torch https://pytorch.org/get-started/previous-versions/ 
-# check torch version
+install torch https://pytorch.org/get-started/previous-versions/ 
+check torch version
 python -c 'import torch;print(torch.__version__);print(torch.version.cuda)'
 
-# install mmcv 
-# pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/{cu_version}/{torch_version}/index.html
+install mmcv 
+pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/{cu_version}/{torch_version}/index.html
 pip install mmcv==2.0.0rc4 -f https://download.openmmlab.com/mmcv/dist/cu111/torch1.9/index.html
 
-# install mmdet
+install mmdet
 git clone https://github.com/open-mmlab/mmdetection.git
 cd mmdetection
 pip install -v -e .
 
-# download checkpoint 
-# check it works
+download checkpoint 
+check it works
  python3 demo/image_demo.py demo/demo.jpg configs/rtmdet/rtmdet_tiny_8xb32-300e_coco.py --weights rtmdet_tiny_8xb32-300e_coco_20220902_112414-78e30dcc.pth --device cpu --show
 '''
 
 
 '''
+# Bug
 **TYPE: ModuleNotFoundError: No module named 'mmcv._ext'
 ->  pip uninstall mmcv-full
     pip install mmcv
