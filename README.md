@@ -33,32 +33,49 @@ check it works
 '''
 # Bug
 **TYPE: ModuleNotFoundError: No module named 'mmcv._ext'
-->  pip uninstall mmcv-full
+->  
+
+    pip uninstall mmcv-full
+    
     pip install mmcv
+    
     re-run this program, make sure it raise ImportError: mmcv not found
+    
     reinstall mmcv-full with pip install openmim; mim install mmcv-full, or other version based on your requirements.
     
--> downgrade: mmcv==0.6.2 and mmdet==2.3.0
--> pyinstaller --hidden-import=mmcv._ext --hidden-import torchvision --onefile our_python_file.py
+-> downgrade: mmcv==0.6.2 and mmdet==2.3.0 .
+
+-> pyinstaller --hidden-import=mmcv._ext --hidden-import torchvision --onefile our_python_file.py.
+
 Explain:
+
   While running pyinstaller, add --hidden-import with the path to your mmcv.
   While installing PyTorch, i only want to use CPU version, so in homepage of PyTorch, i use pip-cpu-version install command.
 
 ->If you install it via pip install mmcv, the lite version is installed, which does not contain mmcv._ext.-> No module name: 'mmcv'.
 
 -> pip install mmcv==2.0.1 -f https://download.openmmlab.com/mmcv/dist/cu117/torch2.0/index.html
-->:first: pip uninstall mmcv
-:then: pip install mmcv-full==latest+torch1.5.0+cu101 -f https://download.openmmlab.com/mmcv/dist/index.html
--> I TRIED UNINSTALL TORCH AND NVIDIA AND THEN I INSTALL IT AGAIN : "I deleted and reinstalled because I want Torch and CUDA to be integrated."->AssertionError: Torch not compiled with CUDA enabled 
+
+->:first: 
+
+    pip uninstall mmcv
+:then: 
+
+    pip install mmcv-full==latest+torch1.5.0+cu101 -f https://download.openmmlab.com/mmcv/dist/index.html
+-> I TRIED UNINSTALL TORCH AND NVIDIA AND THEN I INSTALL IT AGAIN : "I deleted and reinstalled because I want Torch and CUDA to be integrated."->AssertionError: Torch not compiled with CUDA enabled.
+
 -> 
-pip uninstall mmcv
-pip uninstall mmcv-full
-git clone https://github.com/open-mmlab/mmcv.git
-cd mmcv
-set MMCV_WITH_OPS=1
-pip install -e .
+     
+    pip uninstall mmcv
+    pip uninstall mmcv-full
+    git clone https://github.com/open-mmlab/mmcv.git
+    cd mmcv
+    set MMCV_WITH_OPS=1
+    pip install -e .
+
 
 ....
+
 ===> nothing changed
 
 
